@@ -24,8 +24,36 @@ const dialogPhone = document.getElementById("phone");
 const menuList = document.getElementById("menu-list");
 const dailyBtn = document.getElementById("daily-btn");
 const weeklyBtn = document.getElementById("weekly-btn");
+const favoriteBtn = document.getElementById("favorite-btn");
 
 let currentRestaurantId = null;
+
+const updateUser = async (updates) => {
+	const authToken = localStorage.getItem("authToken");
+	if (!authToken) {
+		alert("Kirjaudu sisään tehdäksesi suosikin.");
+		return null;
+	}
+	try {
+		const response = await fetch(`${baseUrl}/api/v1/users`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${authToken}`,
+			},
+			body: JSON.stringify(updates),
+		});
+		if (!response.ok) {
+			alert("Virhe suosikin päivityksessä.");
+			return null;
+		}
+		alert("Suosikki päivitetty!");
+		return await response.json();
+	} catch {
+		alert("Virhe suosikin päivityksessä.");
+		return null;
+	}
+};
 
 const loadMenu = (restaurantId, menuType) => {
 	const endpoint = `/api/v1/restaurants/${menuType}/${restaurantId}/fi`;
@@ -118,6 +146,12 @@ weeklyBtn.addEventListener("click", () => {
 	weeklyBtn.style.fontWeight = "bold";
 	dailyBtn.style.fontWeight = "normal";
 	loadMenu(currentRestaurantId, "weekly");
+});
+
+favoriteBtn.addEventListener("click", () => {
+	if (currentRestaurantId) {
+		updateUser({ favouriteRestaurant: currentRestaurantId });
+	}
 });
 
 http("GET", baseUrl + restaurant, null, (res) => {

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOR</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <h1 class="logo">Suomen Opiskelija Ravintolat</h1>
+        <nav class="nav">
+          <a href="./index.html">Ravintolat</a>
+          <a id="auth-header-link" href="./login.html" class="button-link"
+            >Kirjaudu</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="main container">
+      <h2 id="maintext">Login</h2>
+      <p>Kirjaudu sisään tai luo uusi tili.</p>
+
+      <div class="auth-card">
+        <div class="auth-toggle">
+          <button type="button" id="login-mode" class="active">Login</button>
+          <button type="button" id="register-mode">Create account</button>
+        </div>
+
+        <form id="auth-form" class="auth-form">
+          <label>
+            Username
+            <input type="text" id="username" autocomplete="username" required />
+            <span id="username-availability" class="auth-message"></span>
+          </label>
+
+          <label>
+            Password
+            <input
+              type="password"
+              id="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <label id="email-wrapper" class="hidden">
+            Email
+            <input type="email" id="email" autocomplete="email" />
+          </label>
+
+          <label id="confirm-wrapper" class="hidden">
+            Confirm password
+            <input
+              type="password"
+              id="confirm-password"
+              autocomplete="new-password"
+            />
+          </label>
+
+          <button type="submit" class="auth-submit" id="auth-submit">
+            Login
+          </button>
+          <p id="auth-message" class="auth-message"></p>
+        </form>
+      </div>
+      <div id="user-panel" class="auth-card hidden"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="container" id="about">
+        <h3>About</h3>
+        <p>Tämä sivu näyttää suomen opiskelija ravintolat.</p>
+      </div>
+    </footer>
+  </body>
+  <script src="./loginscript.js"></script>
+</html>

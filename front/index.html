@@ -12,6 +12,9 @@
         <h1 class="logo">Suomen Opiskelija Ravintolat</h1>
         <nav class="nav">
           <a href="#boxes">Ravintolat</a>
+          <a id="auth-header-link" href="./login.html" class="button-link"
+            >Kirjaudu</a
+          >
         </nav>
       </div>
     </header>
@@ -38,6 +41,7 @@
         <div class="menu-buttons">
           <button type="button" id="daily-btn">Daily</button>
           <button type="button" id="weekly-btn">Weekly</button>
+          <button type="button" id="favorite-btn">Tee suosikiksi</button>
         </div>
         <div id="menu-list"></div>
         <menu>
@@ -47,4 +51,11 @@
     </dialog>
   </body>
   <script src="./script.js"></script>
+  <script>
+    const authHeaderLink = document.getElementById("auth-header-link");
+    const token = localStorage.getItem("authToken");
+    if (authHeaderLink) {
+      authHeaderLink.textContent = token ? "Tiedot" : "Kirjaudu";
+    }
+  </script>
 </html>
