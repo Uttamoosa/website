@@ -9,10 +9,6 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 
-app.route("/").get(() => {
-	console.log("Running");
-});
-
 app.listen(port, hostname, () => {
 	console.log(`Listening on port ${port}`);
 });
