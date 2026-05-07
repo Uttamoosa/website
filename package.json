@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Uttamoosa/website#readme",
+  "bugs": {
+    "url": "https://github.com/Uttamoosa/website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uttamoosa/website.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.22.3"
+  }
+}
