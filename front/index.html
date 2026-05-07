@@ -12,7 +12,6 @@
         <h1 class="logo">Suomen Opiskelija Ravintolat</h1>
         <nav class="nav">
           <a href="#boxes">Ravintolat</a>
-          <a href="#boxes">Ruokalistat</a>
         </nav>
       </div>
     </header>
@@ -21,28 +20,7 @@
       <h2 id="maintext">Ravintolat</h2>
       <p>Lista ravintoloista.</p>
 
-      <button id="apitest"></button>
-
-      <div class="boxes" id="ravintolat">
-        <div class="box">Ravintola 1</div>
-        <div class="box">Ravintola 2</div>
-        <div class="box">Ravintola 3</div>
-      </div>
-      <div class="boxes">
-        <div class="box">Ravintola 1</div>
-        <div class="box">Ravintola 2</div>
-        <div class="box">Ravintola 3</div>
-      </div>
-      <div class="boxes">
-        <div class="box">Ravintola 1</div>
-        <div class="box">Ravintola 2</div>
-        <div class="box">Ravintola 3</div>
-      </div>
-      <div class="boxes">
-        <div class="box">Ravintola 1</div>
-        <div class="box">Ravintola 2</div>
-        <div class="box">Ravintola 3</div>
-      </div>
+      <div class="boxes" id="ravintolat"></div>
     </main>
 
     <footer class="footer">
@@ -51,6 +29,22 @@
         <p>Tämä sivu näyttää suomen opiskelija ravintolat.</p>
       </div>
     </footer>
+    <dialog id="restaurant-dialog">
+      <form method="dialog">
+        <h2 id="name"></h2>
+        <p id="address"></p>
+        <p id="pcode"></p>
+        <p id="phone"></p>
+        <div class="menu-buttons">
+          <button type="button" id="daily-btn">Daily</button>
+          <button type="button" id="weekly-btn">Weekly</button>
+        </div>
+        <div id="menu-list"></div>
+        <menu>
+          <button value="close" id="close">Sulje</button>
+        </menu>
+      </form>
+    </dialog>
   </body>
   <script src="./script.js"></script>
 </html>
